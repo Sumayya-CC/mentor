@@ -24,9 +24,17 @@ public class Etracker_ServiceImpl implements Etracker_Service{
 		return epTrackDao.retrieveNote(shareId);
 		
 	}
+	public List<Map<String, Object>> allPost(){
+		return epTrackDao.allPost();
+		
+	}
 	public int insertWish(Mentor mentor) {
 		return epTrackDao.insertWish(mentor);
 	}	
+	public void deletePost(int shareId) {
+		 epTrackDao.deletePost(shareId);
+		 return;
+	}
 
 	
 }

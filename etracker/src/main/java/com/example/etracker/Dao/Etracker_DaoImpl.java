@@ -40,6 +40,18 @@ public class Etracker_DaoImpl implements Etracker_Dao {
 		return jdbcTemplate.queryForMap(Sql.MetadataSql.FETCH_NOTE,shareId);
 
 	}
+	
+	public List<Map<String, Object>> allPost() {
+		return jdbcTemplate.queryForList(Sql.MetadataSql.ALL_POST);
+	}
+	
+	public void deletePost(int shareId) {
+		jdbcTemplate.update(Sql.MetadataSql.DELETE_POST, shareId);
+		return ;
+		
+	}
+	
+	
 	public int insertWish(Mentor mentor) {
 		String rand = Double.toString(Math.random());
 		Date date = new Date();
@@ -51,13 +63,13 @@ public class Etracker_DaoImpl implements Etracker_Dao {
 		String email = mentor.getEmailID();
 		String sender   = mentor.getSender();
 		String note = mentor.getNote();
-		String recipient   =  mentor.getRecipient();
+		String caption   =  mentor.getCaption();
 		String image = mentor.getImageId();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		  
 		
-		 jdbcTemplate.update(Sql.MetadataSql.INSERT_WISH,email, shareId, sender,note,recipient,image, dtf.format(now),dtf.format(now));
+		 jdbcTemplate.update(Sql.MetadataSql.INSERT_WISH,email, shareId, sender,note,caption,image, dtf.format(now),dtf.format(now));
 		 return shareId;
 
 	}

@@ -7,9 +7,9 @@ import java.util.Date;
 public class Mentor {
 
 	
-	
+
 	String sender;
-	String recipient;
+	String caption;
 	String note;
 	String categoryName;
 	Date creationDate;
@@ -23,11 +23,11 @@ public class Mentor {
 	public void setSender(String sender) {
 		this.sender = sender;
 	}
-	public String getRecipient() {
-		return recipient;
+	public String getCaption() {
+		return caption;
 	}
-	public void setRecipient(String recipient) {
-		this.recipient = recipient;
+	public void setCaption(String caption) {
+		this.caption = caption;
 	}
 	public String getNote() {
 		return note;

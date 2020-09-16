@@ -12,6 +12,8 @@ public interface Etracker_Service {
 	
    
 	public Map<String, java.lang.Object> retrieveNote(int shareId);
+	public List<Map<String, Object>> allPost();
 	public int insertWish(Mentor mentor);
+	public void deletePost(int shareId);
 	
 }

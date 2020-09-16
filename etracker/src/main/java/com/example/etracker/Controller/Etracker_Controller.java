@@ -4,6 +4,7 @@ package com.example.etracker.Controller;
 
 import java.math.BigInteger;
 
+
 import java.util.Collection;
 
 
@@ -13,6 +14,7 @@ import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,12 +43,23 @@ public class Etracker_Controller {
 		return exp.retrieveNote(shareId);
 	}
 	
+	@GetMapping(PathRoutes.SearchSQL.ALL_POST)
+	public List<Map<String, Object>>  allPost() {
+		return exp.allPost();
+	}
+	
 	@PostMapping(PathRoutes.SearchSQL.INSERT_WISH)
-	public int abcd(@RequestBody Mentor mentor ) {
+	public int insertWish(@RequestBody Mentor mentor ) {
 			
 		return exp.insertWish(mentor);
 		
 		
+	}
+	
+	@DeleteMapping(PathRoutes.SearchSQL.DELETE_POST)
+	public void deletePost(@RequestParam int shareId) {
+		exp.deletePost(shareId);
+		return;
 	}
 	
 }
